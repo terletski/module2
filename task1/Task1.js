@@ -68,21 +68,22 @@ yargs.command("remove", "Remove a note",
 
 function addNote(argv) {
         
-    if (fs.existsSync("Notes.json")) {
-      let note = {title: argv.title, body: argv.body};
-  //     notes = JSON.stringify(notes, null,"\t"); 
-      let json_file = fs.readFileSync("Notes.json", "utf8");
-      json_file.split("\r\n");
-      json_file = JSON.parse(json_file);
-      console.log(json_file);
-      json_file.push(note);
-      json_file = JSON.stringify(note,null,"\t")
-      fs.writeFileSync("Notes.json", json_file, "utf8");
-      json_file = JSON.parse(json_file);
+  //   if (fs.existsSync("Notes.json")) {
+  //     let note = {title: argv.title, body: argv.body};
+  // //     notes = JSON.stringify(notes, null,"\t"); 
+  //     let json_file = fs.readFileSync("Notes.json", "utf8");
+  //     console.log(json_file)
+      // json_file.split("\r\n");
+      // json_file = JSON.parse(json_file);
+      // console.log(json_file);
+      // json_file.push(note);
+      // json_file = JSON.stringify(note,null,"\t")
+      // fs.writeFileSync("Notes.json", json_file, "utf8");
+      // json_file = JSON.parse(json_file);
       
 
       // json_file.push();
-      console.log(json_file);
+      // console.log(json_file);
       
   //     fs.writeFileSync("Notes.json", array_file, "utf8");
       
@@ -91,15 +92,16 @@ function addNote(argv) {
       // fs.readFileSync("Notes.json", "utf8");
       // fs.appendFileSync("Notes.json", "\n" + json_file);
       // console.log("Note added");
-    } else {
-    let notes = [{title: argv.title, body: argv.body}];
-    json_file = JSON.stringify(notes, null,"\t");
+    // } else {
+    let mass = [];
+    let notes = {title: argv.title, body: argv.body};
+    mass.push(notes);
+    json_file = JSON.stringify(mass, null,"\t");
+    //console.log(json_file);
     fs.writeFileSync("Notes.json", json_file, "utf8"); 
-    json_file = JSON.parse(json_file);
     console.log("Notes.json file was created");
-    console.log(typeof json_file);
   }
-}
+
 
 
         
