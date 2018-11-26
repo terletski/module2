@@ -66,6 +66,7 @@ yargs.command("remove", "Remove a note",
   .help()
   .argv;
 
+  
 function addNote(argv) {
   if (fs.existsSync("Notes.json")) {
     const note = { title: argv.title, body: argv.body };
@@ -118,6 +119,7 @@ function removeNote(argv) {
   });
 }
 
+
 function hasFileExist() {
   if (fs.existsSync("Notes.json")) {
     // eslint-disable-next-line
@@ -126,19 +128,7 @@ function hasFileExist() {
     throw new Error("Notes.json file not found");
   }
 }
+
   
-//   function checkToEqualTitle() {
-//     const json_file = require("./Notes.json");
 
-
-//   const result = json_file.forEach(function (arr) {
-//     if (arr.title !== 'undefined') { 
-//       let popped = json_file.pop();
-//       delete popped;
-//     }
-//       fs.writeFile("Notes.json", JSON.stringify(result), "utf8", () => {
-//         throw new Error("This title exists, сhange one.");
-//     });
-//   })
-// }
 
