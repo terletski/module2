@@ -1,81 +1,70 @@
 {
-	"name": "Angola",
+	"name": "Ukraine",
 	"topLevelDomain": [
-		".ao"
+		".ua"
 	],
-	"alpha2Code": "AO",
-	"alpha3Code": "AGO",
+	"alpha2Code": "UA",
+	"alpha3Code": "UKR",
 	"callingCodes": [
-		"244"
+		"380"
 	],
-	"capital": "Luanda",
+	"capital": "Kiev",
 	"altSpellings": [
-		"AO",
-		"República de Angola",
-		"ʁɛpublika de an'ɡɔla"
+		"UA",
+		"Ukrayina"
 	],
-	"region": "Africa",
-	"subregion": "Middle Africa",
-	"population": 25868000,
+	"region": "Europe",
+	"subregion": "Eastern Europe",
+	"population": 42692393,
 	"latlng": [
-		-12.5,
-		18.5
+		49,
+		32
 	],
-	"demonym": "Angolan",
-	"area": 1246700,
-	"gini": 58.6,
+	"demonym": "Ukrainian",
+	"area": 603700,
+	"gini": 26.4,
 	"timezones": [
-		"UTC+01:00"
+		"UTC+02:00"
 	],
 	"borders": [
-		"COG",
-		"COD",
-		"ZMB",
-		"NAM"
+		"BLR",
+		"HUN",
+		"MDA",
+		"POL",
+		"ROU",
+		"RUS",
+		"SVK"
 	],
-	"nativeName": "Angola",
-	"numericCode": "024",
+	"nativeName": "Україна",
+	"numericCode": "804",
 	"currencies": [
 		{
-			"code": "AOA",
-			"name": "Angolan kwanza",
-			"symbol": "Kz"
+			"code": "UAH",
+			"name": "Ukrainian hryvnia",
+			"symbol": "₴"
 		}
 	],
 	"languages": [
 		{
-			"iso639_1": "pt",
-			"iso639_2": "por",
-			"name": "Portuguese",
-			"nativeName": "Português"
+			"iso639_1": "uk",
+			"iso639_2": "ukr",
+			"name": "Ukrainian",
+			"nativeName": "Українська"
 		}
 	],
 	"translations": {
-		"de": "Angola",
-		"es": "Angola",
-		"fr": "Angola",
-		"ja": "アンゴラ",
-		"it": "Angola",
-		"br": "Angola",
-		"pt": "Angola",
-		"nl": "Angola",
-		"hr": "Angola",
-		"fa": "آنگولا"
+		"de": "Ukraine",
+		"es": "Ucrania",
+		"fr": "Ukraine",
+		"ja": "ウクライナ",
+		"it": "Ucraina",
+		"br": "Ucrânia",
+		"pt": "Ucrânia",
+		"nl": "Oekraïne",
+		"hr": "Ukrajina",
+		"fa": "وکراین"
 	},
-	"flag": "https://restcountries.eu/data/ago.svg",
-	"regionalBlocs": [
-		{
-			"acronym": "AU",
-			"name": "African Union",
-			"otherAcronyms": [],
-			"otherNames": [
-				"الاتحاد الأفريقي",
-				"Union africaine",
-				"União Africana",
-				"Unión Africana",
-				"Umoja wa Afrika"
-			]
-		}
-	],
-	"cioc": "ANG"
+	"flag": "https://restcountries.eu/data/ukr.svg",
+	"regionalBlocs": [],
+	"cioc": "UKR"
 }
