@@ -1,6 +1,7 @@
 /* eslint-disable */
 const yargs = require("yargs");
 const fs = require("fs");
+const path = "./Notes.json";
 /* eslint-enable */
 const titleOptions = {
   describe: "Title of note",
@@ -45,6 +46,7 @@ yargs.command("read", "Read a note",
 
   function (argv) {
     hasFileExist(argv);
+    hasNoteExist(argv);
     readNote(argv);
   }
 )
@@ -60,6 +62,7 @@ yargs.command("remove", "Remove a note",
 
   function (argv) {
     hasFileExist();
+    hasNoteExist(argv);
     removeNote(argv);
   }
 )
@@ -73,22 +76,20 @@ function addNote(argv) {
     let obj = JSON.parse(json_file);
     obj.push(note);
     obj = JSON.stringify(obj, null, "\t");
-    fs.writeFileSync("Notes.json", obj, "utf8", () => {
-    });
+    fs.writeFileSync("Notes.json", obj, "utf8");
     console.log("The note added.");
-    checkToEqualTitle(argv);
+    checkForMatches(argv);
   } else {
     const notes = [{ title: argv.title, body: argv.body }];
     const jsonStr = JSON.stringify(notes, null, "\t");
-    fs.writeFileSync("Notes.json", jsonStr, "utf8", () => {
-    });
+    fs.writeFileSync("Notes.json", jsonStr, "utf8");
     console.log("Notes.json was created.");
   }
 }
 
 function listAllNotes() {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
+  const json_file = require(path);
   json_file.forEach(function (arr) {
     console.log(arr);
   });
@@ -96,20 +97,20 @@ function listAllNotes() {
 
 function readNote(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
+  const json_file = require(path);
   const result = json_file.filter(function (arr) {
     return arr.title === argv.title;
   });
   console.log(result);
 }
 
+
 function removeNote(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
+  const json_file = require(path);
   let result = json_file.filter((arr) => arr.title !== argv.title);
   result = JSON.stringify(result, null, "\t");
-  fs.writeFile("Notes.json", result, "utf8", () => {
-  });
+  fs.writeFileSync("Notes.json", result, "utf8");
 }
 // eslint-disable-next-line no-console
 console.log("Note removed");
@@ -123,9 +124,9 @@ function hasFileExist() {
   }
 }
 
-function checkToEqualTitle(argv) {
+function checkForMatches(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
+  const json_file = require(path);
   const result = json_file.filter(function (arr) {
     return arr.title === argv.title;
   });
@@ -136,11 +137,11 @@ function checkToEqualTitle(argv) {
   }
 }
 
-function checkToExistTitle(argv) {
-  const json_file = require("./Notes.json");
-  const result = json_file.filter(function (arr) {
-    if (arr.title === argv.title)
-    return arr.title === argv.title;
+function hasNoteExist(argv) {
+  const json_file = require(path);
+  json_file.filter(function (arr) {
+    if (arr.title !== argv.title) throw new  Error("Note is not found.");
   });
-  console.log(result);
 }
+ 
+
