@@ -1,6 +1,7 @@
 /* eslint-disable */
 const yargs = require("yargs");
 const fs = require("fs");
+let json_file = require("./Notes.json");
 /* eslint-enable */
 const titleOptions = {
   describe: "Title of note",
@@ -88,7 +89,6 @@ function addNote(argv) {
 
 function listAllNotes() {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
   json_file.forEach(function (arr) {
     console.log(arr);
   });
@@ -96,7 +96,6 @@ function listAllNotes() {
 
 function readNote(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
   const result = json_file.filter(function (arr) {
     return arr.title === argv.title;
   });
@@ -105,7 +104,6 @@ function readNote(argv) {
 
 function removeNote(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
   const result = json_file.forEach(function (arr) {
     if (arr.title === argv.title) delete json_file[arr];
   });
@@ -126,7 +124,6 @@ function hasFileExist() {
 
 function checkToEqualTitle(argv) {
   // eslint-disable-next-line
-  const json_file = require("./Notes.json");
 const result = json_file.filter(function (arr) {
  return arr.title === argv.title;
 });
