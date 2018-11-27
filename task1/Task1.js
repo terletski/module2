@@ -137,5 +137,10 @@ function checkToEqualTitle(argv) {
 }
 
 function checkToExistTitle(argv) {
-
+  const json_file = require("./Notes.json");
+  const result = json_file.filter(function (arr) {
+    if (arr.title === argv.title)
+    return arr.title === argv.title;
+  });
+  console.log(result);
 }
