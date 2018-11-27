@@ -1,7 +1,6 @@
 /* eslint-disable */
 const yargs = require("yargs");
 const fs = require("fs");
-let json_file = require("./Notes.json");
 /* eslint-enable */
 const titleOptions = {
   describe: "Title of note",
@@ -89,6 +88,7 @@ function addNote(argv) {
 
 function listAllNotes() {
   // eslint-disable-next-line
+  const json_file = require("./Notes.json");
   json_file.forEach(function (arr) {
     console.log(arr);
   });
@@ -96,6 +96,7 @@ function listAllNotes() {
 
 function readNote(argv) {
   // eslint-disable-next-line
+  const json_file = require("./Notes.json");
   const result = json_file.filter(function (arr) {
     return arr.title === argv.title;
   });
@@ -104,18 +105,18 @@ function readNote(argv) {
 
 function removeNote(argv) {
   // eslint-disable-next-line
-  const result = json_file.forEach(function (arr) {
-    if (arr.title === argv.title) delete json_file[arr];
-  });
-    fs.writeFile("Notes.json", JSON.stringify(result), "utf8", () => {
-   
-    console.log("The note was removed.");
+  const json_file = require("./Notes.json");
+  let result = json_file.filter((arr) => arr.title !== argv.title);
+  result = JSON.stringify(result, null, "\t");
+  fs.writeFile("Notes.json", result, "utf8", () => {
   });
 }
+// eslint-disable-next-line no-console
+console.log("Note removed");
 
 function hasFileExist() {
   if (fs.existsSync("Notes.json")) {
-    
+
     console.log("Notes.json file exists");
   } else {
     throw new Error("Notes.json file not found.");
@@ -124,10 +125,17 @@ function hasFileExist() {
 
 function checkToEqualTitle(argv) {
   // eslint-disable-next-line
-const result = json_file.filter(function (arr) {
- return arr.title === argv.title;
-});
-/* eslint-disable */
-  console.info("But note with title <" + argv.title + "> exists.");
-  console.info("Matches found: " + result.length);
+  const json_file = require("./Notes.json");
+  const result = json_file.filter(function (arr) {
+    return arr.title === argv.title;
+  });
+  /* eslint-disable */
+  if (result.length > 1) {
+    console.info("But note with title <" + argv.title + "> exists.");
+    console.info("Matches found: " + result.length);
+  }
+}
+
+function checkToExistTitle(argv) {
+
 }
