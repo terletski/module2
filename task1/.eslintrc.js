@@ -9,6 +9,8 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+       
+        "no-console": "off",
         "accessor-pairs": "error",
         "array-bracket-newline": "error",
         "array-bracket-spacing": [

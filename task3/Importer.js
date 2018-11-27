@@ -5,7 +5,7 @@ const {promisify} = require('util');
 const csvjson = require('csvjson');
 const readdirAsync = promisify(fs.readdir);
 const readFileAsync = promisify(fs.readFile);
-/* eslint-enable */
+
  
 class Importer {
     constructor(dirwatcher) {
@@ -39,4 +39,5 @@ class Importer {
     }
 }
  exports.Importer = Importer; 
+ /* eslint-enable */
  
