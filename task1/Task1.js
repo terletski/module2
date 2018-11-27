@@ -21,6 +21,7 @@ yargs.command("add", "Add a new note",
 
   function (argv) {
     addNote(argv);
+    checkToEqualTitle(argv);
   }
 )
   .help()
@@ -77,14 +78,14 @@ function addNote(argv) {
     fs.writeFileSync("Notes.json", obj, "utf8", () => {
     });
     // eslint-disable-next-line
-    console.log("The note added");
+    console.log("The note added.");
   } else {
     const notes = [{ title: argv.title, body: argv.body }];
     const jsonStr = JSON.stringify(notes, null, "\t");
     fs.writeFileSync("Notes.json", jsonStr, "utf8", () => {
     });
     // eslint-disable-next-line
-    console.log("Notes.json was created");
+    console.log("Notes.json was created.");
   }
 }
 
@@ -115,7 +116,7 @@ function removeNote(argv) {
   });
     fs.writeFile("Notes.json", JSON.stringify(result), "utf8", () => {
     // eslint-disable-next-line
-    console.log("The note was removed");
+    console.log("The note was removed.");
   });
 }
 
@@ -125,10 +126,17 @@ function hasFileExist() {
     // eslint-disable-next-line
     console.log("Notes.json file exists");
   } else {
-    throw new Error("Notes.json file not found");
+    throw new Error("Notes.json file not found.");
   }
 }
 
-  
-
-
+function checkToEqualTitle(argv) {
+  // eslint-disable-next-line
+  const json_file = require("./Notes.json");
+const result = json_file.filter(function (arr) {
+ return arr.title === argv.title;
+});
+/* eslint-disable */
+  console.info("But note with title <" + argv.title + "> exists.");
+  console.info("Matches found: " + result.length) 
+}
